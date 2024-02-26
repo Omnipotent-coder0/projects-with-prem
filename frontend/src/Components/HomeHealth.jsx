@@ -28,8 +28,8 @@ const HomeHealth = () => {
 },[])
   return (
     <div className='m-20 mt-40'>
-        <h1 className='text-5xl font-bold mb-6 '>Health</h1>
-        <div className='flex justify-center gap-8 p-8'>
+        <h1 className='text-5xl font-bold mb-12 '>Health</h1>
+        <div className='flex justify-between'>
               { items.length >= 3 ? 
                 items.map((item, index)=>(
                   index < 3 &&  <Cardm item = {item} key = {index} />

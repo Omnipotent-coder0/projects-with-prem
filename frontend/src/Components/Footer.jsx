@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <>
-      <div className='w-screen h-max p-10  bg-slate-900 border-2  border-gray-950 flex flex-row justify-around  '>
+      <div className=' h-max p-10  bg-slate-900 border-2  border-gray-950 flex flex-row justify-around  '>
         <div className=' text-gray-50 flex flex-col'> 
             <h1 className='text-4xl mb-5 font-bold'>Newzy</h1>
             <p className='w-2/3'>All in One Web-App for all your need of category to Search  and Read New's for Free</p>
