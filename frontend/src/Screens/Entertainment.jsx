@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Cardm from '../Cards/Cardm';
-import { getData } from '../../main';
+import { getData } from '../main';
+import Cardm from '../Components/Cards/Cardm';
 
 const Entertainment = () => {
     const [items, setItems] = useState([{

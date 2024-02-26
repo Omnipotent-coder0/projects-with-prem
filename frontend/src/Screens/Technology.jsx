@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { getData } from '../../main';
-import Cardm from '../Cards/Cardm';
+import { getData } from '../main';
+import Cardm from '../Components/Cards/Cardm';
 
 const Technology = () => {
     const [items, setItems] = useState([{

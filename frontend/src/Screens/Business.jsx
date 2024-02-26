@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Cardm from '../Cards/Cardm';
-import { getData } from '../../main';
+import { getData } from '../main';
+import Cardm from '../Components/Cards/Cardm';
 
-
-const Health = () => {
+const Business = () => {
     const [items, setItems] = useState([{
         "source": {
             "id": null,
@@ -19,7 +18,7 @@ const Health = () => {
     }]);
     useEffect(()=>{
         async function getResults(){
-            const {data} = await getData('health');
+            const {data} = await getData('business');
             console.log(data);
             console.log(data[1]);
             setItems(data);
@@ -35,4 +34,4 @@ const Health = () => {
   )
 }
 
-export default Health
+export default Business
