@@ -14,9 +14,6 @@ function App() {
         <Routes>
           <Route path='/' element = {<Home/>} />
         </Routes>
-        <div className='text-3xl underline font-bold text-center' >
-          hello this is sample text
-        </div>
       </Router>
     </>
   )
