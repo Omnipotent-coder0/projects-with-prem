@@ -9,7 +9,7 @@ const MainItem = (props)=>(
         <img className='h-60' src={NoImage} alt="hot topic image" />}
         <div className='flex-col space-y-4'>
             <h4 className='font-bold'>Hot topics</h4>
-            <h1 className='text-3xl font-bold'>{props.item.title}</h1>
+            <h1 className='text-2xl h-16 overflow-hidden font-bold'>{props.item.title}</h1>
             <h1 className='text-xl font-semibold mb-10'>{props.item.publishedAt}</h1>
             <h4 className=''>Read more...</h4>
         </div>
