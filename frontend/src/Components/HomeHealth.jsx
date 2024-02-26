@@ -20,7 +20,7 @@ const HomeHealth = () => {
   ]);
   useEffect(()=>{
     async function getResults(){
-        const {data} = await getData('health');
+        const {data} = await getData('health'); 
         console.log(data);
         setItems(data);
     }
