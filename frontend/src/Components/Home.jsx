@@ -4,8 +4,6 @@ import HomeHealth from './HomeHealth'
 import HomeTechnology from './HomeTechnology'
 import HomeBusiness from './HomeBusiness'
 import HomeEntertainment from './HomeEntertainment'
-import Footer from './Footer'
-import Subscribe from './Subscribe'
 
 const Home = () => {
   return (
@@ -15,8 +13,6 @@ const Home = () => {
         <HomeTechnology/>
         <HomeBusiness/>
         <HomeEntertainment/>
-        <Subscribe />
-        <Footer/>
     </div>
   )
 }
