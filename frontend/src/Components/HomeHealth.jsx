@@ -21,13 +21,13 @@ const HomeHealth = () => {
   useEffect(()=>{
     async function getResults(){
         const {data} = await getData('health'); 
-        console.log(data);
+        // console.log(data);
         setItems(data);
     }
     getResults();
 },[])
   return (
-    <div className='m-20 mt-40'>
+    <div className='m-20 mt-20'>
         <h1 className='text-5xl font-bold mb-6 '>Health</h1>
         <div className='flex justify-center gap-8 p-8'>
               { items.length >= 3 ? 
