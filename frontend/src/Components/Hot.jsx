@@ -5,7 +5,7 @@ import NoImage from "../assets/noimage.png"
 import { Link } from 'react-router-dom';
 // import Hotimage from '../assets/img_rectangle5.png'
 const MainItem = (props)=>(
-    <Link className='flex m-20 space-x-8 cursor-pointer' to = "./0">
+    <Link className='flex my-20 w-full justify-center gap-8 cursor-pointer' to = "/trending/0">
        { props.item.urlToImage ? <img className='h-60' src={props.item.urlToImage} alt="hot topic image" /> :
         <img className='h-60' src={NoImage} alt="hot topic image" />}
         <div className='flex-col space-y-4'>
@@ -16,7 +16,7 @@ const MainItem = (props)=>(
         </div>
     </Link> 
 )
-const Hot = () => {
+const Hot = (props) => {
     const [items, setItems] = useState([{
         "source": {
             "id": null,
@@ -32,7 +32,7 @@ const Hot = () => {
     }]);
     useEffect(()=>{
         async function getResults(){
-            const {data} = await getData('trending');
+            const {data} = await getData(props.route);
             console.log(data);
             console.log(data[1]);
             setItems(data);

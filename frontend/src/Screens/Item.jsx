@@ -2,24 +2,27 @@ import React, { useEffect, useState } from 'react'
 import { getData } from '../main';
 import NoImage from "../assets/noimage.png"
 import Cardsm from '../Components/Cards/Cardsm';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { Link, useLocation } from 'react-router-dom';
 
 
 const MainItem = (props)=>(
-    <Link className='flex m-20 space-x-8 cursor-pointer' to = "./0">
-       { props.item.urlToImage ? <img className='h-60' src={props.item.urlToImage} alt="hot topic image" /> :
-        <img className='h-60' src={NoImage} alt="hot topic image" />}
-        <div className='flex-col space-y-4'>
-            <h4 className='font-bold'>Hot topics</h4>
-            <h1 className='text-2xl h-16 overflow-hidden font-bold'>{props.item.title}</h1>
-            <h1 className='text-xl font-semibold mb-10'>{props.item.publishedAt}</h1>
-            <h4 className=''>Read more...</h4>
+    <div className='flex my-20 w-full justify-center' >
+        <div className='flex gap-8 max-w-5xl' >
+            <img className='h-60' src={ props.item.urlToImage ? props.item.urlToImage : NoImage} alt="hot topic image" />
+            <div className='flex-col'>
+                <h1 className='text-xl h-16 overflow-hidden font-bold'>{props.item.title}</h1>
+                <h2>{props.item.description} {props.item.content}</h2>
+                <h1 className='text-xl font-semibold mb-10'>{props.item.publishedAt}</h1>
+            </div>
         </div>
-    </Link> 
+    </div> 
 )
 
 const Item = () => {
+    const {pathname} = useLocation();
+    const array = pathname.split('/');
+    const route = array[1];
+    const id = Number(array[2]);
     const [items, setItems] = useState([{
         "source": {
             "id": null,
@@ -35,9 +38,7 @@ const Item = () => {
     }]);
     useEffect(()=>{
         async function getResults(){
-            const {data} = await axios.get();
-            console.log(data);
-            console.log(data[1]);
+            const {data} = await getData(route);
             setItems(data);
         }
         getResults();
@@ -45,10 +46,14 @@ const Item = () => {
 
   return (
     <div>
-        <MainItem item = {items[0] }/> 
+        {
+            items.length > id ? <MainItem item = {items[id] }/> :
+            <MainItem item = {items[0]}/> 
+        }
         <div className='flex justify-center gap-10 flex-wrap p-4'>
             {items.map((item, index)=>(
-                index == 0 ? null : <Cardsm item = {item} index = {index} key = {index} />
+                index != id && <Cardsm item = {item} route = {'/' + route + '/' + index} key = {index} />
+                // <div>{'/' + route + '/' + index}</div>
             ))}
         </div>
     </div>
