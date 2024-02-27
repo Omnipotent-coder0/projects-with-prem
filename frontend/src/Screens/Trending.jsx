@@ -1,22 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { getData } from '../main';
-import Cardsm from './Cards/Cardsm';
-import NoImage from "../assets/noimage.png"
-import { Link } from 'react-router-dom';
-// import Hotimage from '../assets/img_rectangle5.png'
-const MainItem = (props)=>(
-    <Link className='flex m-20 space-x-8 cursor-pointer' to = "./0">
-       { props.item.urlToImage ? <img className='h-60' src={props.item.urlToImage} alt="hot topic image" /> :
-        <img className='h-60' src={NoImage} alt="hot topic image" />}
-        <div className='flex-col space-y-4'>
-            <h4 className='font-bold'>Hot topics</h4>
-            <h1 className='text-2xl h-16 overflow-hidden font-bold'>{props.item.title}</h1>
-            <h1 className='text-xl font-semibold mb-10'>{props.item.publishedAt}</h1>
-            <h4 className=''>Read more...</h4>
-        </div>
-    </Link> 
-)
-const Hot = () => {
+import Cardm from '../Components/Cards/Cardm';
+
+const Trending = () => {
     const [items, setItems] = useState([{
         "source": {
             "id": null,
@@ -39,17 +25,13 @@ const Hot = () => {
         }
         getResults();
     },[])
-
   return (
-    <div>
-        <MainItem item = {items[0] }/> 
-        <div className='flex justify-center gap-10 flex-wrap p-4'>
+    <div className='flex justify-center gap-10 flex-wrap p-4 m-10'>
             {items.map((item, index)=>(
-                index == 0 ? null : <Cardsm item = {item} index = {index} key = {index} />
+                <Cardm item = {item} key = {index} />
             ))}
-        </div>
     </div>
   )
 }
 
-export default Hot
+export default Trending

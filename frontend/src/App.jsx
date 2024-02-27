@@ -9,6 +9,7 @@ import Technology from './Screens/Technology';
 import Business from './Screens/Business';
 import Entertainment from './Screens/Entertainment';
 import Subscribe from './Components/Subscribe';
+import Trending from './Screens/Trending';
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -19,6 +20,7 @@ function App() {
         <Header/>
         <Routes>
           <Route path='/' element = {<Home/>} />
+          <Route path='/trending' element = {<Trending/>} />
           <Route path='/health' element = {<Health/>} />
           <Route path='/technology' element = {<Technology/>} />
           <Route path='/business' element = {<Business/>} />

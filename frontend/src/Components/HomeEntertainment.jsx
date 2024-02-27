@@ -29,7 +29,7 @@ const HomeEntertainment = () => {
   return (
     <div className='m-20 mt-20'>
         <h1 className='text-5xl font-bold mb-12 '>Entertainment</h1>
-        <div className='flex justify-between gap-8 p-8'>
+        <div className='flex justify-between'>
               { items.length >= 3 ? 
                 items.map((item, index)=>(
                   index < 3 &&  <Cardm item = {item} key = {index} />
