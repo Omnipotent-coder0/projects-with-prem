@@ -45,7 +45,7 @@ const Hot = (props) => {
         <MainItem item = {items[0] }/> 
         <div className='flex justify-center gap-10 flex-wrap p-4'>
             {items.map((item, index)=>(
-                index == 0 ? null : <Cardsm item = {item} index = {index} key = {index} />
+                index == 0 ? null : <Cardsm item = {item} route = {'/' + props.route + '/' + index} index = {index} key = {index} />
             ))}
         </div>
     </div>
