@@ -19,10 +19,11 @@ const NavItem = (props) => {
     useEffect(()=>{
         async function getResults(){
             const {data} = await getData(props.route);
+            console.log(data);
             setItems(data);
         }
         getResults();
-    },[])
+    },[props.route])
   return (
     <div className='flex justify-center gap-10 flex-wrap p-4 m-10'>
             {items.map((item, index)=>(

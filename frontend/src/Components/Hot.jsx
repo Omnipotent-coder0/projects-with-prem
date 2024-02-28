@@ -33,8 +33,6 @@ const Hot = (props) => {
     useEffect(()=>{
         async function getResults(){
             const {data} = await getData(props.route);
-            console.log(data);
-            console.log(data[1]);
             setItems(data);
         }
         getResults();

@@ -2,9 +2,6 @@ import React, { useEffect, useState } from 'react'
 import NoImage from '../../assets/noimage.png'
 import { Link } from 'react-router-dom';
 const Cardsm = (props) => {
-  useEffect(()=>{
-    console.log(props.index);
-  },[])
   return (
     <Link className='flex space-x-4 w-max cursor-pointer' to = {props.route}>
         <div>
