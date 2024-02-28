@@ -3,19 +3,7 @@ import { getData } from '../main';
 import NoImage from "../assets/noimage.png"
 import Cardsm from '../Components/Cards/Cardsm';
 import { Link, useLocation } from 'react-router-dom';
-
-const MainItem = (props)=>(
-    <div className='flex my-20 w-full justify-center' >
-        <div className='flex gap-8 max-w-5xl' >
-            <img className='w-96' src={ props.item.urlToImage ? props.item.urlToImage : NoImage} alt="hot topic image" />
-            <div className='flex-col'>
-                <h1 className='text-xl h-16 overflow-hidden font-bold'>{props.item.title}</h1>
-                <h2>{props.item.description} {props.item.content}</h2>
-                <h1 className='text-xl font-semibold mb-10'>{props.item.publishedAt}</h1>
-            </div>
-        </div>
-    </div> 
-)
+import MainItem from '../Components/MainItem';
 
 const Item = () => {
     const {pathname} = useLocation();
