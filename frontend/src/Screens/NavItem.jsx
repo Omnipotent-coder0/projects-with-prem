@@ -1,27 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { getData } from '../main';
-import NoImage from "../assets/noimage.png"
-import Cardsm from '../Components/Cards/Cardsm';
-import { Link, useLocation } from 'react-router-dom';
+import Cardm from '../Components/Cards/Cardm';
 
-const MainItem = (props)=>(
-    <div className='flex my-20 w-full justify-center' >
-        <div className='flex gap-8 max-w-5xl' >
-            <img className='w-96' src={ props.item.urlToImage ? props.item.urlToImage : NoImage} alt="hot topic image" />
-            <div className='flex-col'>
-                <h1 className='text-xl h-16 overflow-hidden font-bold'>{props.item.title}</h1>
-                <h2>{props.item.description} {props.item.content}</h2>
-                <h1 className='text-xl font-semibold mb-10'>{props.item.publishedAt}</h1>
-            </div>
-        </div>
-    </div> 
-)
-
-const Item = () => {
-    const {pathname} = useLocation();
-    const array = pathname.split('/');
-    const route = array[1];
-    const id = Number(array[2]);
+const NavItem = (props) => {
     const [items, setItems] = useState([{
         "source": {
             "id": null,
@@ -37,26 +18,18 @@ const Item = () => {
     }]);
     useEffect(()=>{
         async function getResults(){
-            const {data} = await getData(route);
+            const {data} = await getData(props.route);
             setItems(data);
         }
         getResults();
     },[])
-
   return (
-    <div>
-        {
-            items.length > id ? <MainItem item = {items[id] }/> :
-            <MainItem item = {items[0]}/> 
-        }
-        <div className='flex justify-center gap-10 flex-wrap p-4'>
+    <div className='flex justify-center gap-10 flex-wrap p-4 m-10'>
             {items.map((item, index)=>(
-                index != id && <Cardsm item = {item} route = {'/' + route + '/' + index} key = {index} />
-                // <div>{'/' + route + '/' + index}</div>
+                <Cardm item = {item} route = {props.route} index = {index} key = {index} />
             ))}
-        </div>
     </div>
   )
 }
 
-export default Item
+export default NavItem

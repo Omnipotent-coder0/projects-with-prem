@@ -1,6 +1,6 @@
 import React from 'react'
-import Hot from './Hot'
-import Row from './Row'
+import Hot from '../Components/Hot'
+import Row from '../Components/Row'
 
 const Home = () => {
   return (
