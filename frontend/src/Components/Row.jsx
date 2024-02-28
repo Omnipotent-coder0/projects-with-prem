@@ -26,8 +26,8 @@ const Row = (props) => {
         getResults();
     },[])
       return (
-        <div className='m-20 mt-20'>
-            <h1 className='text-5xl font-bold mb-12 capitalize '>{props.route}</h1>
+        <div className='mx-20 pb-16'>
+            <h1 className='text-5xl font-bold mb-12 capitalize text-white'>{props.route}</h1>
             <div className='flex gap-20 overflow-x-auto noscroll'>
                 {items.map((item, index)=>(
                 <Cardm item = {item} route = {props.route} index = {index} key = {index} />
