@@ -1,5 +1,7 @@
 import React from 'react'
 
+import NoImage from '../assets/noimage.png';
+
 const MainItem = (props)=>(
     <div className='flex my-20 w-full justify-center' >
         <div className='flex flex-col gap-8 w-3/5'>

@@ -5,16 +5,18 @@ import NoImage from "../assets/noimage.png"
 import { Link } from 'react-router-dom';
 // import Hotimage from '../assets/img_rectangle5.png'
 const MainItem = (props)=>(
-    <Link className='flex my-20 w-full justify-center gap-8 cursor-pointer' to = "/trending/0">
-       { props.item.urlToImage ? <img className='h-60' src={props.item.urlToImage} alt="hot topic image" /> :
-        <img className='h-60' src={NoImage} alt="hot topic image" />}
-        <div className='flex-col space-y-4'>
-            <h4 className='font-bold'>Hot topics</h4>
-            <h1 className='text-2xl h-16 overflow-hidden font-bold'>{props.item.title}</h1>
-            <h1 className='text-xl font-semibold mb-10'>{props.item.publishedAt}</h1>
-            <h4 className=''>Read more...</h4>
-        </div>
-    </Link> 
+    <div className="m-10">
+        <Link className='flex my-20 w-full justify-center gap-8 cursor-pointer' to = "/trending/0">
+        { props.item.urlToImage ? <img className='h-60 hover:shadow-2xl duration-200' src={props.item.urlToImage} alt="hot topic image" /> :
+            <img className='h-60' src={NoImage} alt="hot topic image" />}
+            <div className='flex-col space-y-4'>
+                <h4 className='font-bold'>Hot topics</h4>
+                <h1 className='text-2xl h-16 overflow-hidden font-bold'>{props.item.title}</h1>
+                <h1 className='text-xl font-semibold mb-10'>{props.item.publishedAt}</h1>
+                <h4 className=''>Read more...</h4>
+            </div>
+        </Link> 
+    </div>
 )
 const Hot = (props) => {
     const [items, setItems] = useState([{
